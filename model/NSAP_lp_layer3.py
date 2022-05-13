@@ -20,8 +20,6 @@ class NSAP_lp_layer(nn.Module):
         self.device=device
 
 
-        # drug_layers:[原图层元路径聚合，上下文层元路径聚合]
-        # 0代表drug的元路径;1代表dis的元路径
         self.drug_layers=nn.ModuleList()
         self.drug_layers.append(meta_metapath_aggLayer(num_metapaths_list[0],hidden_dim,num_heads,device))
         self.drug_layers.append(context_metapath_aggLayer(num_metapaths_list[0],hidden_dim,num_heads,batch_size,device))
@@ -50,11 +48,7 @@ class NSAP_lp_layer(nn.Module):
         train_batch = torch.tensor(train_batch).to(self.device)
         train_drug_batch=train_batch[:,0]
         train_dis_batch=train_batch[:,1]+offset
-        # ctr_ntype-specific layers
-        #h_lists[0]：存放drug元图和上下文图生成的特征向量
-        #h_lists[1]: 存放dis元图和上下文图生成的特征向量
-        #h_lists=[[],[]]
-        #i为0时，代表第元图生成的特征向量;i为1时，代表上下文图生成的特征向量
+
         for i,(drug_layer,fc_drug,dis_layer,fc_dis) in enumerate(zip(self.drug_layers,self.fc_drugs,self.dis_layers,self.fc_diss)):
             # if i==1:
             #     break
@@ -68,11 +62,7 @@ class NSAP_lp_layer(nn.Module):
                 meta_emb_list=torch.stack((logits_drug,logits_dis),dim=0)
             else:
                 context_emb_list=torch.stack((logits_drug,logits_dis),dim=0)
-        #维度：2 (药物/疾病) x 2(元图/上下文图)x 8(batchsize) x 64(特征维度)
         h_lists=torch.stack((meta_emb_list,context_emb_list),dim=1)
-        #维度：2 (药物/疾病) x 8(batchsize)x 2(元图/上下文图) x 64(特征维度)
         h_lists=h_lists.permute(0, 2, 1, 3)
-        #维度：2 (药物/疾病) x 8(batchsize) x 64(特征维度)
         emb_lists=torch.sum(h_lists * self.linear,dim=2)
         return emb_lists
-        # return meta_emb_list
