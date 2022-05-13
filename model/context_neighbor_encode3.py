@@ -31,9 +31,6 @@ class context_metapath(nn.Module):
 
         cnodes=cnodes.long()
         real_ndata = F.embedding(cnodes, features)
-
-
-        #按结点顺序分配的特征
         virtue_ndata = nn.Embedding(len(vm_idx),self.hidden_dim).weight.to(self.device)
 
         ndata=torch.cat((real_ndata,virtue_ndata),dim=0)
