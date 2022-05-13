@@ -1,9 +1,6 @@
 import argparse
 
 def parse_args():
-    '''
-    parser:用于解析命令行参数
-    '''
     parser = argparse.ArgumentParser(description="NSAP testing for the recommendation dataset")
 
     #============train=============#
@@ -14,7 +11,6 @@ def parse_args():
     parser.add_argument('--repeat', type=int, default=3,
                         help='Repeat the training and testing for N times. Default is 1.')
     parser.add_argument('--lr', type=float, default=0.005, help='learning rate.Default is 1e-2.')
-    #parser.add_argument('--gamma', type=float, default=0.3, help='lr decay rate.Default is 0.3.')
     parser.add_argument('--weight-decay',type=float,default=1e-3, help="weight decay.Default is 1e-3.")
     parser.add_argument('--patience', type=int, default=5, help='Patience. Default is 4.')
     parser.add_argument('--save-postfix', default='LastNSAP', help='Postfix for the saved model and result. Default is LastNSAP.')
