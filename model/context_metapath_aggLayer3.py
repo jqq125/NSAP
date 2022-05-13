@@ -16,7 +16,7 @@ class context_metapath_aggLayer(nn.Module):
         self.hidden_dim = hidden_dim
         self.num_heads = num_heads
 
-        # 上下文层
+   
         self.contextgraph_layers = nn.ModuleList()
         for i in range(num_metapaths):
             self.contextgraph_layers.append(context_metapath(hidden_dim, num_heads,batch_size,device))
@@ -24,7 +24,7 @@ class context_metapath_aggLayer(nn.Module):
         # metapath-level attention
         self.linear = nn.Parameter(torch.empty(size=(1, num_heads * hidden_dim)))
 
-        # 权重初始化
+      
         nn.init.xavier_normal_(self.linear.data, gain=1.414)
 
         # note that the acutal input dimension should consider the number of heads
@@ -41,19 +41,17 @@ class context_metapath_aggLayer(nn.Module):
         # g_list, features, virtue_features, type_mask, edge_metapath_indices_list, target_idx_list, center_node_idx, contextGraph_list, cnodes_list, vm_idx_list = inputs
         g_list, features, type_mask, edge_metapath_indices_list, target_idx_list, center_node_idx, contextGraph_list, cnodes_list, vm_idx_list = inputs
 
-        # metapath-specific layers：生成基于特定元路径的输出Hv,p
+     
         scores = []
         cfts = []
         for contextGraph, cnodes, vm_idx, context_layer in zip(contextGraph_list,cnodes_list,vm_idx_list,self.contextgraph_layers):
-            # 返回batch中的结点 基于特定元路径的综合特征,维度：batchsize x (num_heads * hidden_dim)
+          
             cft = context_layer((features, contextGraph, cnodes, vm_idx)).view(-1, self.num_heads * self.hidden_dim)
             cfts.append(cft)
-
-            # q维度：batchsize x (hidden_dim * num_heads)
+     
             q = cft * self.linear
-
             contextgraph_feat = F.leaky_relu(q)
-            # contextgraph_feat维度：batchsize x (num_heads * hidden_dim)
+      
             contextgraph_feat = torch.mean(contextgraph_feat, dim=0)
             attn_score = self.fc1(contextgraph_feat)
             scores.append(attn_score)
