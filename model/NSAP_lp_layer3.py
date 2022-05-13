@@ -50,8 +50,6 @@ class NSAP_lp_layer(nn.Module):
         train_dis_batch=train_batch[:,1]+offset
 
         for i,(drug_layer,fc_drug,dis_layer,fc_dis) in enumerate(zip(self.drug_layers,self.fc_drugs,self.dis_layers,self.fc_diss)):
-            # if i==1:
-            #     break
             h_drug = drug_layer(
                 (g_lists[0], features, type_mask, edge_metapath_indices_lists[0], target_idx_lists[0], train_drug_batch,contextGraph_lists[0],cnodes_lists[0],vm_idx_lists[0]))
             logits_drug = fc_drug(h_drug)
