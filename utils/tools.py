@@ -31,19 +31,6 @@ class index_generator:
     def num_iterations(self):
         return int(np.ceil(self.num_data / self.batch_size))
 
-def sample_neighbor1(sample_list,samples):
-    unique, counts = np.unique(sample_list, return_counts=True)
-    total = len(sample_list)
-    # p = []
-    # for count in counts:
-    #     #p += [(count ** (3 / 4)) / count] * count
-    #     p += [count / total] * count
-    # p = np.array(p)
-    # p = p / p.sum()
-    samples = min(samples, total)
-    # sampled_idx = np.sort(np.random.choice(total, samples, replace=False, p=p))
-    sampled_idx = np.sort(np.random.choice(total, samples, replace=False))
-    return sampled_idx
 
 def sample_neighbor(sample_list,samples):
     unique, counts = np.unique(sample_list, return_counts=True)
