@@ -1,2 +1,2 @@
 # NSAP
-A neighborhood subgraph aggregation method for drug-disease prediction
+A neighborhood subgraph aggregation method for drug-disease association prediction
