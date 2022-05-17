@@ -3,32 +3,24 @@ This is our Pytorch implementation for the paper:
 Qiqi Jiao,Yu Jiang, Yang Zhang, Yadong Wang, and Junyi Li(2022).NSAP:
 
 
-# Title
-
-![banner]()
-
-![badge]()
-![badge]()
-[![license](https://img.shields.io/github/license/:user/:repo.svg)](LICENSE)
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-This is an example file with maximal choices selected.
-
-This is a long description.
-
 ## Table of Contents
 
 - [Environment Requirement](#requirement)
-- [Usage](#usage)
+- [Dataset](#dataset)
 
-## <span id='requirement'>Environment requirement</span>  
-- torch
-- numpy
-- scipy
-- dgl
-- pandas
 
-## Security
+
+## <span id='requirement'> Environment requirement </span>  
+
+The code has been tested running uder python 3.7.4. The required packages can be installed by using the following command.  
+
+```
+pip install -r requirement.txt
+```
+
+## <span id='dataset'> Dataset </span>  
+
+<!-- ## Usage
 
 ### Any optional sections
 
@@ -45,7 +37,7 @@ This module depends upon a knowledge of [Markdown]().
 
 ### Any optional sections
 
-## Usage
+<!-- ## Usage -->
 
 ```
 ```
@@ -60,16 +52,6 @@ Note: The `license` badge image link at the top of this file should be updated w
 
 ## More optional sections
 
-## Contributing
 
-See [the contributing file](CONTRIBUTING.md)!
+### Any optional sections -->
 
-PRs accepted.
-
-Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
-
-### Any optional sections
-
-## License
-
-[MIT © Richard McRichface.](../LICENSE)
