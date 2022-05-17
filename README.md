@@ -7,6 +7,7 @@ Qiqi Jiao,Yu Jiang, Yang Zhang, Yadong Wang, and Junyi Li(2022).NSAP:A neighborh
 
 - [Environment Requirement](#requirement)
 - [Dataset](#dataset)
+- [Usage](#usage)
 
 
 
@@ -25,13 +26,18 @@ It can be installed by the following command.
 pip install -r requirement.txt
 ```
 
-## <span id='dataset'> Dataset </span>  
+## <span id='dataset'> Dataset </span> 
 
 | Relations(A-B) | Number of A | Number of B | Number of A-B |
 |--|--|--|--|
 | Drug-disease  |  1482 | 793  |  11540 |
 |  Drug-protein |  1482 |  2077 | 11407  |
-|  Disease-gene |   793|   6365|  18844 |
+|  Disease-gene |   793|   6365|  18844 |  
+
+## Usage
+
+```
+```
 
 <!-- ## Usage
 
@@ -50,10 +56,7 @@ This module depends upon a knowledge of [Markdown]().
 
 ### Any optional sections
 
-<!-- ## Usage -->
 
-```
-```
 
 Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
 
