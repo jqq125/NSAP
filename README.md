@@ -1,6 +1,6 @@
 # NSAP:A neighborhood subgraph aggregation method for drug-disease association prediction
 This is our Pytorch implementation for the paper:
-Qiqi Jiao,Yu Jiang, Yang Zhang, Yadong Wang, and Junyi Li(2022).NSAP:
+Qiqi Jiao,Yu Jiang, Yang Zhang, Yadong Wang, and Junyi Li(2022).NSAP:A neighborhood subgraph aggregation method for drug-disease association prediction.
 
 
 ## Table of Contents
@@ -19,7 +19,7 @@ The code has been tested running uder python 3.7.4. The required packages are as
 - scipy==1.5.2
 - torch==1.9.0
 
-It can be installed by using the following command.  
+It can be installed by the following command.  
 
 ```
 pip install -r requirement.txt
