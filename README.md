@@ -8,6 +8,7 @@ Qiqi Jiao,Yu Jiang, Yang Zhang, Yadong Wang, and Junyi Li(2022).NSAP:A neighborh
 - [Environment Requirement](#requirement)
 - [Dataset](#dataset)
 - [Usage](#usage)
+- [Training](#training)
 
 
 
@@ -34,40 +35,22 @@ pip install -r requirement.txt
 |  Drug-protein |  1482 |  2077 | 11407  |
 |  Disease-gene |   793|   6365|  18844 |  
 
-## Usage
+<!-- ## Usage -->
+## <span id='usage'> Usage </span> 
+1.Create checkpoint/ and  dataset/preprocess_NSAP directories.  
+
+2.run the file /dataset/preprocess_NSAP_NEW.ipynb, and generate all the files we need.  
+
+3.Execute the following command from the home directory:
 
 ```
-```
+python nsap.py 
+```  
 
-<!-- ## Usage
+## <span id='training'> Training </span> 
 
-### Any optional sections
+The instruction of commands has been clearly stated in the codes (see the parser function in utils/parser.py).  
 
-## Background
-
-### Any optional sections
-
-## Install
-
-This module depends upon a knowledge of [Markdown]().
-
-```
-```
-
-### Any optional sections
-
-
-
-Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
-
-### Any optional sections
-
-## API
-
-### Any optional sections
-
-## More optional sections
-
-
-### Any optional sections -->
-
+Some important hyper-parameters are listed here.  
+- samples :  It specifies the number of sampled neighboor.
+- num_heads : It specifies the number of the attention heads.
